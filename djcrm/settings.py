@@ -15,6 +15,15 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Templates Directory
+TEMPLATE_DIR = BASE_DIR / 'templates'
+# Static Directory
+STATIC_DIR = BASE_DIR / 'static'
+# Static Root Directory
+STATIC_ROOT_DIR = BASE_DIR / 'static_root'
+# Media Directory
+MEDIA_DIR = BASE_DIR / 'media'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -54,7 +63,7 @@ ROOT_URLCONF = 'djcrm.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,3 +127,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [STATIC_DIR, ]
+STATIC_ROOT = STATIC_ROOT_DIR
+
+# media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = MEDIA_DIR
